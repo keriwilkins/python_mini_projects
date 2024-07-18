@@ -1,54 +1,33 @@
-print("Welcome to my computer quiz!")
+def quiz(): 
+    print("Welcome to my computer quiz!")
 
-# asks if the user wants to play or not
-playing = input("Do you want to play? ")
+    playing = input("Do you want to play? ").strip().lower()
 
-score = 0
-total_questions = 4
+    if (playing != "yes"):
+        print("Quitting program...")
+        return
+    print("Great! Let's play! ")
 
-# conditional check
-if (playing.lower() != "yes"): 
-    print("quitting program... see you later!")
-    quit()
+    questions_answers = {
+        "What does CPU stand for? " : "central processing unit",
+        "What does GPU stand for? " : "graphics processing unit",
+        "What does RAM stand for? " : "random access memory",
+        "What does PSU stand for? " : "power supply unit"
+    }
 
-print("Okay! Great! Let's play :) ")
+    score = 0
 
-# Q1 
-answer = input("What does CPU stand for? ")
-if (answer.lower() == "central processing unit"): 
-    print("Correct!")
-    score += 1
+    for question, correct_answer in questions_answers.items():
+        answer = input(question).strip().lower()
+        if answer == correct_answer:
+            print("Correct!")
+            score += 1
+        else:
+            print("Incorrect...")
 
-else:
-    print("Incorrect... " ) 
+    total_questions = len(questions_answers)
+    print(f"You got {score} questions correct!")
+    print(f"You got {(score / total_questions) * 100}%")
 
-# Q2
-answer = input("What does GPU stand for? ")
-if (answer.lower() == "graphics processing unit"): 
-    print("Correct!")
-    score += 1
-
-else:
-    print("Incorrect... " ) 
-
-# Q3
-answer = input("What does RAM stand for? ")
-if (answer.lower() == "random access memory"): 
-    print("Correct!")
-    score += 1
-
-else:
-    print("Incorrect... " ) 
-
-# Q4
-answer = input("What does CPU stand for? ")
-if (answer.lower() == "central power unit"): 
-    print("Correct!")
-    score += 1
-
-else:
-    print("Incorrect... " ) 
-
-# Implement a Score 
-print("You got " + str(score) + " questions correct!")
-print("You got " + str((score / total_questions) * 100) + "%")
+if (__name__ == "__main__"): 
+    quiz()
