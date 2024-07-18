@@ -36,7 +36,7 @@ def number_guessing_game():
         if user_guess == random_number: 
             print("Congratulations! You guessed the correct number.")
             break
-        elif user_guess > random_number: 
+        elif user_guess > random_number:
             print("Too high! Try again.")
         else: 
             print("Too low! Try again.")
